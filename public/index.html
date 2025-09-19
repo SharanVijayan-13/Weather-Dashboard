@@ -12,45 +12,52 @@
   </head>
   <body>
     <div class="container">
-      <header>
-        <h1>Weather API Fetch <i class="fas fa-cloud"></i></h1>
+      <!-- Top Header -->
+      <header class="header">
+        <div class="header-content">
+          <h1>Weather Dashboard</h1>
+          <p class="subtitle">Check the forecast anytime, anywhere</p>
+        </div>
         <div class="search-container">
           <input
             type="text"
             id="city-input"
-            placeholder="Enter the city name"
+            placeholder="Enter city name..."
             autocomplete="off"
           />
-          <button id="search-btn">Search</button>
+          <button id="search-btn"><i class="fas fa-search"></i></button>
         </div>
       </header>
 
-      <div class="weather-content">
+      <!-- Weather Info -->
+      <main class="weather-content">
         <div id="loading" class="loading hidden">
           <div class="spinner"></div>
           <p>Fetching weather data...</p>
         </div>
 
         <div id="error" class="error hidden">
-          <i class="fas fa-exclamation-circle"></i>
+          <i class="fas fa-exclamation-triangle"></i>
           <p>Error message will appear here</p>
         </div>
 
-        <div id="weather-data">
-          <div class="current-weather">
+        <div id="weather-data" class="hidden">
+          <section class="current-weather card">
             <h2 class="location">Chennai, IND</h2>
             <p class="date">Friday, September 19, 2025</p>
+            <h3 class="temp">32°C</h3>
             <div class="weather-desc">
               <i class="fas fa-sun weather-icon"></i>
-              <span class="description">mist</span>
+              <span class="description">Clear sky</span>
             </div>
-            <h3 class="temp">32°C</h3>
-          </div>
+          </section>
 
-          <h3>5-Day Forecast</h3>
-          <div class="forecast"></div>
+          <section class="forecast-section">
+            <h3>Next 5 Days</h3>
+            <div class="forecast"></div>
+          </section>
         </div>
-      </div>
+      </main>
     </div>
     <script src="../src/js/main.js"></script>
   </body>

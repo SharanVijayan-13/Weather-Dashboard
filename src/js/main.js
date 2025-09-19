@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
       );
 
       if (!currentWeatherResponse.ok) {
-        throw new Error("City not found");
+        throw new Error("ERROR: API Key is not fetching");
       }
 
       const currentWeatherData = await currentWeatherResponse.json();
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
       icon.className = "fas fa-cloud weather-icon";
     }
 
-    // ✅ Update description text
+    // Description
     document.querySelector(".description").textContent =
       current.weather[0].description;
 
@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const forecastContainer = document.querySelector(".forecast");
     forecastContainer.innerHTML = "";
 
-    // Get unique days (API returns data every 3 hours, we need one per day)
+    // Get unique days
     const dailyForecasts = [];
     const seenDays = new Set();
 
