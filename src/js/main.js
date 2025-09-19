@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       // Fetch current weather
       const currentWeatherResponse = await fetch(
-        `https:api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
       );
 
       if (!currentWeatherResponse.ok) {
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Fetch 5-day forecast
       const forecastResponse = await fetch(
-        `https:api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}`
+        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}`
       );
 
       if (!forecastResponse.ok) {
@@ -104,6 +104,10 @@ document.addEventListener("DOMContentLoaded", () => {
       icon.className = "fas fa-cloud weather-icon";
     }
 
+    // ✅ Update description text
+    document.querySelector(".description").textContent =
+      current.weather[0].description;
+
     // Update forecast
     const forecastContainer = document.querySelector(".forecast");
     forecastContainer.innerHTML = "";
@@ -148,11 +152,11 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       forecastEl.innerHTML = `
-                      <div class="forecast-date">${day.day}</div>
-                      <i class="${iconClass} weather-icon"></i>
-                      <div class="forecast-temp">${day.temp}°C</div>
-                      <div class="forecast-desc">${day.description}</div>
-                  `;
+          <div class="forecast-date">${day.day}</div>
+          <i class="${iconClass} weather-icon"></i>
+          <div class="forecast-temp">${day.temp}°C</div>
+          <div class="forecast-desc">${day.description}</div>
+        `;
 
       forecastContainer.appendChild(forecastEl);
     });
