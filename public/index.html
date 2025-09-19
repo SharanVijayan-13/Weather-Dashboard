@@ -5,8 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Dashboard</title>
     <link rel="stylesheet" href="../src/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
   </head>
   <body>
+    <div class="container">
+      <header>
+        <h1>Weather API Fetch <i class="fas fa-cloud"></i></h1>
+        <div class="search-container">
+          <input
+            type="text"
+            id="city-input"
+            placeholder="Enter the city name"
+            autocomplete="off"
+          />
+          <button id="search-btn">Search</button>
+        </div>
+      </header>
+
+      <div class="weather-content">
+        <div id="loading" class="loading hidden">
+          <div class="spinner"></div>
+          <p>Fetching weather data...</p>
+        </div>
+
+        <div id="error" class="error hidden">
+          <i class="fas fa-exclamation-circle"></i>
+          <p>Error message will appear here</p>
+        </div>
+
+        <div id="weather-data">
+          <div class="current-weather">
+            <h2 class="location">Chennai, IND</h2>
+            <p class="date">Friday, September 19, 2025</p>
+            <div class="weather-desc">
+              <i class="fas fa-sun weather-icon"></i>
+              <span class="description">mist</span>
+            </div>
+            <h3 class="temp">32°C</h3>
+          </div>
+
+          <h3>5-Day Forecast</h3>
+          <div class="forecast"></div>
+        </div>
+      </div>
+    </div>
     <script src="../src/js/main.js"></script>
   </body>
 </html>
