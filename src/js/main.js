@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const currentWeatherData = await currentWeatherResponse.json();
+      console.log("Results:", currentWeatherData);
 
       // Fetch 5-day forecast
       const forecastResponse = await fetch(
@@ -53,6 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const forecastData = await forecastResponse.json();
+      console.log("Results:", forecastData);
 
       displayWeatherData(currentWeatherData, forecastData);
     } catch (err) {
